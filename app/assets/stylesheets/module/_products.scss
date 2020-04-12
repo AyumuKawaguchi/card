@@ -97,11 +97,18 @@ li{
   padding-left:20px;
 }
 
+.devise{
+  width: 150px;
+  justify-content: space-between;
+  margin-left: 500px;
+  display: flex;
+}
+
 .main-content{
   // デザイン崩す原因になりそう
   padding: 0 30px 30px;
   margin-left: 30px;
-  min-height: calc(100vh - 123px);
+  min-height: calc(100vh - 93px);
   margin-top:33px;
   background-color: #f4f3ef;
 }

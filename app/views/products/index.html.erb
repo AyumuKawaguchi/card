@@ -1,41 +1,24 @@
 <%# 全体 %>
 <div class="wrapper">
-  <%# 左サイド %>
-  <div class="sidebar">
-    <div class="sidetop">
-      <div class="sidetop-cover">
-        <a class="user-logo">
-          <%= image_tag 'back', class:'logo'%>
-        </a>
-        <a class="user">管理者画面</a>
-      </div>
-    </div>
-    <div class="sidedown">
-      <ul class="nav navbar-nav">
-        <li><a class="nav-item active" href="#"><i class="icon"></i>登録者一覧</a></li>
-        <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>アクセス回数</a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">日別アクセス回数</a>
-          <a class="dropdown-item" href="#">月別アクセス回数</a>
-        </div>
-        </li>
-        <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>ポイント管理</a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">日別合計ポイント</a>
-            <a class="dropdown-item" href="#">月別合計ポイント</a>
-        </div>
-        </li>
-        <li class="dropdown"><a class="nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>修正</a></li>
+  
+  <%=render 'shared/sidebar'%>
 
-        
-        
-      </ul>
-    </div>
-  </div>
   <%# メイン %>
   <div class="main-box">
     <nav class="navbar">
       <div class="register">登録者一覧</div>
+        <% if user_signed_in? %>
+          <div class="devise">
+            <div class="logout">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            </div>
+          </div>
+        <% else %>
+          <div class="devise">
+            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        <% end %>
       <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -48,9 +31,9 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">氏名</th>
+                <th scope="col">ポイント数</th>
+                <th scope="col">ID</th>
               </tr>
             </thead>
             <tbody>
