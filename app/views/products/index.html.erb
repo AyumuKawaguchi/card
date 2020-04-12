@@ -13,9 +13,22 @@
     <div class="sidedown">
       <ul class="nav navbar-nav">
         <li><a class="nav-item active" href="#"><i class="icon"></i>登録者一覧</a></li>
-        <li><a class="nav-item" href="#"><i class="icon"></i>アクセス回数</a></li>
-        <li><a class="nav-item" href="#"><i class="icon"></i>ポイント数</a></li>
-        <li><a class="nav-item" href="#"><i class="icon"></i>修正</a></li>
+        <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>アクセス回数</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">日別アクセス回数</a>
+          <a class="dropdown-item" href="#">月別アクセス回数</a>
+        </div>
+        </li>
+        <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>ポイント管理</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">日別合計ポイント</a>
+            <a class="dropdown-item" href="#">月別合計ポイント</a>
+        </div>
+        </li>
+        <li class="dropdown"><a class="nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>修正</a></li>
+
+        
+        
       </ul>
     </div>
   </div>
@@ -31,8 +44,40 @@
     <div class="main-content">
       <div class="row">
         <div class="col-md-12">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+
         </div>
       </div>
     </div>
   </div>
 </div>
+
