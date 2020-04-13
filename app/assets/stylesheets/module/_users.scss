@@ -59,11 +59,13 @@ li{
 
 .nav-item { 
   text-decoration: none;
+  color: #66615B;
   cursor: pointer;
   font-size:14px;
 }
 .nav-item:hover{
   text-decoration: none;
+  color:red;
 }
 
 .icon::before {
@@ -75,7 +77,7 @@ li{
 }
 
 .dropdown-item{
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .main-box{
@@ -102,6 +104,20 @@ li{
   justify-content: space-between;
   margin-left: 500px;
   display: flex;
+}
+.devise2{
+  width: 150px;
+  margin-left: 500px;
+  text-align: right;
+}
+
+.log{
+  text-decoration: none;
+  color: #66615B;
+}
+.log:hover{
+  text-decoration: none;
+  color: red;
 }
 
 .main-content{

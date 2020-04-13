@@ -70,3 +70,4 @@ gem 'bootstrap', '~> 4.3.1'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'jquery-rails'
+gem 'impressionist'

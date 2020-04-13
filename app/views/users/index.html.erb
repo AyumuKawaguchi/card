@@ -1,0 +1,62 @@
+<%# 全体 %>
+<div class="wrapper">
+  
+<%=render 'shared/sidebar'%>
+
+  <div class="main-box">
+    <nav class="navbar">
+      <div class="register">登録者一覧</div>
+        <% if user_signed_in? %>
+          <div class="devise2">
+            <div class="logout">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="devise">
+            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        <% end %>
+      
+      <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
+          <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
+          <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
+
+
+      
+    </nav>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <tbody class="thead-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">氏名</th>
+                <th scope="col">ポイント数</th>
+                <th scope="col">email</th>
+                <th scope="col">登録日時
+              </tr>
+              <tr>
+              <% @users.each do |user|%>
+                <td><%= user.id %></td>
+                <td>
+                <%= link_to edit_user_registration_path, class: "db-update" do %>
+                <%= user.username %>
+                <% end    %>
+                </td>
+                <td><%= user.created_at %></td>
+                <td><%= user.email %></td>
+                <td><%= user.created_at %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
