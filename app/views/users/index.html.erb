@@ -6,7 +6,7 @@
   <div class="main-box">
     <nav class="navbar">
       <div class="register">登録者一覧</div>
-      <a>合計閲覧数:<%= @user %></a>
+      <a>合計閲覧数:<%= @impression %></a>
       
         <% if user_signed_in? %>
           <div class="devise2">
@@ -51,7 +51,7 @@
                 </td>
                 <td><%= user.created_at %></td>
                 <td><%= user.email %></td>
-                <td><%= user.created_at %></td>
+                <td><%= user.created_at.to_s(:datetime) %></td>
               </tr>
               <% end %>
             </tbody>
