@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   
   is_impressionable counter_cache: true
+  
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

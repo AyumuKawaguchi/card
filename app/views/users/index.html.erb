@@ -6,6 +6,8 @@
   <div class="main-box">
     <nav class="navbar">
       <div class="register">登録者一覧</div>
+      <a>合計閲覧数:<%= @user %></a>
+      
         <% if user_signed_in? %>
           <div class="devise2">
             <div class="logout">

@@ -19,8 +19,9 @@
         <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>アクセス回数</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%# <a class="dropdown-item" href="#">日別アクセス回数</a> %>
-          <%= link_to "日別アクセス回数", user_path(:id), class:"dropdown-item" %>
-          <a class="dropdown-item" href="#">月別アクセス回数</a>
+          <%= link_to "日別アクセス回数", day_count_impressions_path, class:"dropdown-item" %>
+          <%# <a class="dropdown-item" href="#">月別アクセス回数</a> %>
+          <%= link_to "月別アクセス回数", month_count_impressions_path, class:"dropdown-item" %>
         </div>
         </li>
         <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>ポイント管理</a>

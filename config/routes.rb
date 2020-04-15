@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :users do
     get :search, on: :collection
   end
-  resources :products
   resources :points
+  resources :impressions do
+    collection do
+    get  'day_count'
+    get  'month_count' 
+    end
+  end
 
 end
