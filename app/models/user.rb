@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   
-  has_many :user_point, dependent: :destroy
-  has_many :point_history, dependent: :destroy
+  has_many :user_points, dependent: :destroy
+  has_many :point_histories, dependent: :destroy
 
 
   def self.search(search)

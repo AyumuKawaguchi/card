@@ -1,6 +1,6 @@
 class PointHistory < ApplicationRecord
-  has_many :point_breakdown
-  has_many :user_point, through: :point_breakdowns
+  has_many :point_breakdowns
+  has_many :user_points, through: :point_breakdowns
 
   belongs_to :user
   belongs_to :pointable, polymorphic: true
