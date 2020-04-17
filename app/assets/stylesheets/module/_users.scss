@@ -88,9 +88,11 @@ li{
 }
 
 .main-box{
+  height:100vh;
   width: calc(100vw - 260px);
   background-color: #f4f3ef;
-  float:right;
+  position: absolute;
+  left: 260px;
 }
 
 .navbar{
@@ -105,17 +107,24 @@ li{
   color: #66615B;
   padding-left:20px;
 }
+.count{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
 
 .devise{
   width: 150px;
-  justify-content: space-between;
-  margin-left: 300px;
-  display: flex;
+  position: relative;
+  left: 330px;
 }
+
 .devise2{
   width: 150px;
-  margin-left: 500px;
-  text-align: right;
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+  left: 80px;
 }
 
 .log{
@@ -129,25 +138,24 @@ li{
 
 .main-content{
   // デザイン崩す原因になりそう
-  padding: 0 30px 30px;
-  margin-left: 30px;
   min-height: calc(100vh - 93px);
-  margin-top:33px;
   background-color: #f4f3ef;
 }
 
 .row{
-  width:100%;
+  width:90%;
   height:100%;
+  margin: 33px auto;
   flex-wrap: wrap;
-  background-color:#fff;
 }
 
 
 .table{
   margin-top: 10px;
-  
 }
+
+
+
 
 .db-update{
   font-size: 16px;

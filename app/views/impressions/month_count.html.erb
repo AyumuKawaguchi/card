@@ -1,1 +1,55 @@
-<a>月合計閲覧数:<%= @impression %></a>
+<%# 全体 %>
+<div class="wrapper">
+  
+<%=render 'shared/sidebar'%>
+
+  <div class="main-box">
+    <nav class="navbar">
+      <div class="register">登録者一覧</div>
+      <div>総合閲覧数:<%= @impressions.values.inject(:+) %></div>
+      
+        <% if user_signed_in? %>
+          <div class="devise2">
+            <div class="logout">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="devise3">
+            <%= link_to "新規登録", new_user_registration_path %>
+            <%= link_to "ログイン", new_user_session_path %>
+          </div>
+        <% end %>
+      
+      <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
+          <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
+          <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
+
+
+      
+    </nav>
+    <div class="main-content">
+      <div class="sub-row">
+        <div class="col-md-12 sub-col" >
+          <table class="table">
+            <tbody class="thead-dark">
+              <tr class= "">
+                <th scope="col" class="t-title">日時</th>
+                <th scope="col" class="t-title">アクセス数</th>
+              </tr>
+              <tr>
+              <% @impressions.each do |impressions_key,impressions_value| %>
+                <td class="t-date"><%= @date %>/<%= impressions_key %></td>
+                <td class = "t-date"><%= impressions_value %></td>
+              </tr>
+                 <% end %>
+    
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

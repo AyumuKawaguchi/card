@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @users = User.search(params[:search])
     @user = User.all.sum(:impressions_count)
     @impression= Impression.where(created_at: start_date..end_date).group('DAY(created_at)').count
-    
+    @impressions = Impression.group("MONTH(created_at)").count
 
   end
 
