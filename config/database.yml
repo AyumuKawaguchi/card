@@ -47,8 +47,13 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: card_production
+  # username: root
+  # password: <%= ENV['DATABASE_PASSWORD'] %>
