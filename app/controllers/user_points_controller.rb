@@ -1,2 +1,4 @@
 class UserPointsController < ApplicationController
+
+
 end
