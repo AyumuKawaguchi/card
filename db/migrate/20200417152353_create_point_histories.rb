@@ -1,11 +1,12 @@
 class CreatePointHistories < ActiveRecord::Migration[5.2]
   def change
     create_table :point_histories do |t|
-      t.references :user, foreign_key: true
+      t.bigint :user_id
       t.integer :amount
       t.string :type
-      t.references :type, foreign_key: :true
+      t.bigint :type_id
       t.timestamps
     end
   end
 end
+

@@ -19,8 +19,8 @@
           </div>
         <% else %>
           <div class="devise2">
-            <%= link_to "新規登録", new_user_registration_path %>
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path, class:"log" %>
+            <%= link_to "ログイン", new_user_session_path, class:"log" %>
           </div>
         <% end %>
       
@@ -51,7 +51,7 @@
                 <%= user.username %>
                 <% end    %>
                 </td>
-                <td class="t-date"><%= user.created_at %></td>
+                <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
                 <td class="t-date"><%= user.email %></td>
                 <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
               </tr>

@@ -1,0 +1,2 @@
+class PointHistoriesController < ApplicationController
+end

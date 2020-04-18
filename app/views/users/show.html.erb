@@ -82,9 +82,9 @@
                 <%= @user.username %>
                 <% end    %>
                 </td>
-                <td class="t-date"><%= @user.created_at %></td>
+                <td class="t-date"><%= @user.created_at.to_s(:datetime) %></td>
                 <td class="t-date"><%= @user.email %></td>
-                <td class="t-date"><%= @user.created_at %></td>
+                <td class="t-date"><%= @user.created_at.to_s(:datetime) %></td>
               </tr>
             </tbody>
           </table>
