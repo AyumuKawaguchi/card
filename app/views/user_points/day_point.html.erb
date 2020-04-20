@@ -1,0 +1,66 @@
+<%# 全体 %>
+<div class="wrapper">
+  
+<%=render 'shared/sidebar'%>
+
+  <div class="main-box">
+    <nav class="navbar">
+      <div class="register">登録者一覧</div>
+      <div class = count>
+        <div>総閲覧数:<%= @impressions.values.inject(:+) %></div>
+        <div>合計マイページ閲覧数:<%= @user %></div>
+      </div>
+      <%# ログイン部分　レスポンシブ非対応 %>
+        <% if user_signed_in? %>
+          <div class="devise">
+            <div class="logout">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="devise2">
+            <%= link_to "新規登録", new_user_registration_path, class:"log" %>
+            <%= link_to "ログイン", new_user_session_path, class:"log" %>
+          </div>
+        <% end %>
+      
+      <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
+          <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
+          <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+        <% end %>
+
+
+    </nav>
+    <div class="main-content">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <tbody class="thead-dark">
+              <tr>
+                <th scope="col" class="t-title">ID</th>
+                <th scope="col" class="t-title">氏名</th>
+                <th scope="col" class="t-title">ポイント数</th>
+                <th scope="col" class="t-title">email</th>
+                <th scope="col" class="t-title">登録日時
+              </tr>
+              <tr>
+              <% @users.each do |user|%>
+                <td class="t-date"><%= user.id %></td>
+                <td class="t-date">
+                <%= link_to edit_user_registration_path, class: "db-update" do %>
+                <%= user.username %>
+                <% end    %>
+                </td>
+                <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
+                <td class="t-date"><%= user.email %></td>
+                <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
