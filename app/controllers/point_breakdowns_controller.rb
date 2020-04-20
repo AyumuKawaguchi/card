@@ -1,0 +1,2 @@
+class PointBreakdownsController < ApplicationController
+end

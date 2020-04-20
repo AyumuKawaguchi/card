@@ -19,8 +19,8 @@
           </div>
         <% else %>
           <div class="devise2">
-            <%= link_to "新規登録", new_user_registration_path %>
-            <%= link_to "ログイン", new_user_session_path %>
+            <%= link_to "新規登録", new_user_registration_path, class:"log" %>
+            <%= link_to "ログイン", new_user_session_path, class:"log" %>
           </div>
         <% end %>
       
@@ -39,8 +39,8 @@
               <tr>
                 <th scope="col" class="t-title">ID</th>
                 <th scope="col" class="t-title">氏名</th>
+                <th scope="col" class="t-title">マイページ閲覧数</th>
                 <th scope="col" class="t-title">ポイント数</th>
-                <th scope="col" class="t-title">email</th>
                 <th scope="col" class="t-title">登録日時
               </tr>
               <tr>
@@ -51,8 +51,8 @@
                 <%= user.username %>
                 <% end    %>
                 </td>
-                <td class="t-date"><%= user.created_at %></td>
-                <td class="t-date"><%= user.email %></td>
+                <td class="t-date"><%= user.impressions_count %></td>
+                <td class="t-date"><%= user.points %></td>
                 <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
               </tr>
               <% end %>

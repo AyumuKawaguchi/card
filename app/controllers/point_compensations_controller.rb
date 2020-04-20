@@ -1,0 +1,2 @@
+class PointCompensationsController < ApplicationController
+end

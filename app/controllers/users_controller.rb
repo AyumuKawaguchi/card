@@ -15,8 +15,18 @@ class UsersController < ApplicationController
   end
 
   def show
+    
     @user = User.find(params[:id])
-    # impressionist(@user, nil, :unique => [:session_hash])
+    if @user.current_sign_in_at.strftime("%Y%m%d") != @user.last_sign_in_at.strftime("%Y%m%d")
+      @user.increment!(:points, 1)
+    end
+
+
+    
+    # if user_signed_in?
+    # @amount = @user.amout +=1
+    # end
+    
   end
 
 

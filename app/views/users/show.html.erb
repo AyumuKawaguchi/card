@@ -1,4 +1,4 @@
-  <%# 全体 %>
+ <%# 全体 %>
 <div class="wrapper">
   
 <%# 左サイド %>
@@ -28,8 +28,8 @@
         </li>
         <li class="dropdown"><a class="nav-item dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>ポイント管理</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to "日別合計ポイント", points_path, class:"dropdown-item" %>
-            <%= link_to "月別合計ポイント", points_path, class:"dropdown-item" %>
+            <%# <%= link_to "日別合計ポイント", points_path, class:"dropdown-item" %> %>
+            <%# <%= link_to "月別合計ポイント", points_path, class:"dropdown-item" %> %>
         </div>
         </li>
         <%# <li class="dropdown"><a class="nav-item" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon"></i>修正</a></li>  %>
@@ -82,9 +82,9 @@
                 <%= @user.username %>
                 <% end    %>
                 </td>
-                <td class="t-date"><%= @user.created_at %></td>
+                <td class="t-date"><%= @user.created_at.to_s(:datetime) %></td>
                 <td class="t-date"><%= @user.email %></td>
-                <td class="t-date"><%= @user.created_at %></td>
+                <td class="t-date"><%= @user.created_at.to_s(:datetime) %></td>
               </tr>
             </tbody>
           </table>

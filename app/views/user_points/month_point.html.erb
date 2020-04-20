@@ -6,7 +6,7 @@
   <div class="main-box">
     <nav class="navbar">
       <div class="register">登録者一覧</div>
-      <div>総合閲覧数:<%= @impressions.values.inject(:+) %></div>
+       <div>総閲覧数:<%= @impressions.values.inject(:+) %></div>
       
         <% if user_signed_in? %>
           <div class="devise2">
@@ -31,25 +31,23 @@
     </nav>
     <div class="main-content">
       <div class="sub-row">
-        <div class="col-md-12 sub-col" >
+        <div class="col-md-12 sub-col">
           <table class="table">
             <tbody class="thead-dark">
-              <tr class= "">
+              <tr>
                 <th scope="col" class="t-title">日時</th>
-                <th scope="col" class="t-title">アクセス数</th>
+                <th scope="col" class="t-title">取得ポイント数</th>
               </tr>
               <tr>
-              <% @impressions.each do |impressions_key,impressions_value| %>
-                <td class="t-date"><%= @date %>/<%= impressions_key %></td>
-                <td class = "t-date"><%= impressions_value %></td>
+              <% @users.each do |user_key,user_value|%>
+                <td class="t-date"><%= @date %>/<%= user_key%></td>
+                <td class="t-date"><%= user_value %></td>
               </tr>
-                 <% end %>
-    
+              <% end %>
             </tbody>
           </table>
         </div>
       </div>
     </div>
   </div>
-  
 </div>

@@ -1,7 +1,12 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # is_impressionable
+  
+  devise :database_authenticatable, :registerable, :trackable,
+         :recoverable, :rememberable, :validatable
+
+  has_many :user_points, dependent: :destroy
+  has_many :point_histories, dependent: :destroy
+
+
   def self.search(search)
     if search
       User.where(['username LIKE ?', "%#{search}%"])
@@ -14,6 +19,4 @@ class User < ApplicationRecord
   is_impressionable counter_cache: true
   
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
 end
