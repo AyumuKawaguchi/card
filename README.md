@@ -9,15 +9,12 @@
 ・ユーザー認証機能  
 
 # 主要技術
-使用言語
-Ruby
-使用フレームワーク
-Ruby on Rails5
-Bootstrap4
-使用DB
-MySQL
-使用プラットフォーム
-heroku
-
-
-* ...
+使用言語  
+Ruby  
+使用フレームワーク  
+Ruby on Rails5  
+Bootstrap4  
+使用DB  
+MySQL  
+使用プラットフォーム  
+heroku  
