@@ -17,7 +17,7 @@
 }
 
 .sidetop-cover{
-  width:210px;
+  width:220px;
   height:53px;
   padding: 7px 0.7rem;
   border-bottom: 1px solid #cdcdcd;
@@ -45,7 +45,7 @@
   font-weight: 400;
   line-height: 30px;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .sidedown{
@@ -88,7 +88,6 @@ li{
 }
 
 .main-box{
-  height:100vh;
   width: calc(100vw - 260px);
   background-color: #f4f3ef;
   position: absolute;
@@ -116,7 +115,7 @@ li{
 .devise{
   width: 150px;
   position: relative;
-  left: 330px;
+  left: 250px;
 }
 
 .devise2{
@@ -137,7 +136,6 @@ li{
 }
 
 .main-content{
-  // デザイン崩す原因になりそう
   min-height: calc(100vh - 93px);
   background-color: #f4f3ef;
 }
@@ -149,13 +147,9 @@ li{
   flex-wrap: wrap;
 }
 
-
 .table{
   margin-top: 10px;
 }
-
-
-
 
 .db-update{
   font-size: 16px;

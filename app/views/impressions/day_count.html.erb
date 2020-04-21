@@ -24,10 +24,7 @@
       <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
           <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
           <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
-        <% end %>
-
-
-      
+      <% end %>
     </nav>
     <div class="main-content">
       <div class="sub-row">
@@ -44,16 +41,26 @@
                 <td class="t-date"><%= impression_value %></td>
               </tr>
                  <% end %>
-    
-
-             
-                
-             
             </tbody>
           </table>
         </div>
       </div>
+      <div class="row justify-content-between chart-row">
+        <div class="col-md-6 line-chart">
+          <div class="chart-head">
+            <h4>日別訪問者数</h4>
+             <p class="chart-para">（折り線チャート）</p>
+          </div>
+          <%= line_chart @chart, curve: false, discrete: true %>
+        </div>
+        <div class="col-md-5 column-chart">
+          <div class="chart-head">
+            <h4>日別訪問者数</h4>
+            <p class="chart-para">（棒チャート）</p>
+          </div>
+          <%= column_chart @chart, curve: false, discrete: true %>
+        </div>
+      </div>
     </div>
   </div>
-  
 </div>

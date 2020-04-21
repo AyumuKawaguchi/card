@@ -10,7 +10,6 @@
         <div>総閲覧数:<%= @impressions.values.inject(:+) %></div>
         <div>合計マイページ閲覧数:<%= @user %></div>
       </div>
-      <%# ログイン部分　レスポンシブ非対応 %>
         <% if user_signed_in? %>
           <div class="devise">
             <div class="logout">
@@ -23,13 +22,11 @@
             <%= link_to "ログイン", new_user_session_path, class:"log" %>
           </div>
         <% end %>
-      
+
       <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
           <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
           <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
-        <% end %>
-
-
+      <% end %>
     </nav>
     <div class="main-content">
       <div class="row">
@@ -47,9 +44,7 @@
               <% @users.each do |user|%>
                 <td class="t-date"><%= user.id %></td>
                 <td class="t-date">
-                <%= link_to edit_user_registration_path, class: "db-update" do %>
                 <%= user.username %>
-                <% end    %>
                 </td>
                 <td class="t-date"><%= user.impressions_count %></td>
                 <td class="t-date"><%= user.points %></td>
@@ -61,6 +56,5 @@
         </div>
       </div>
     </div>
-  </div>
-  
+  </div> 
 </div>
