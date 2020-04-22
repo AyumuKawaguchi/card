@@ -5,6 +5,7 @@ https://card-ak.herokuapp.com
 user  :ササキ  
 e-mail:sasaki@gmail.com  
 pass  :1234567  
+
 # アプリケーション機能
 ・日別・月別アクセス数集計機能  
 ・日別・月別ログインポイント数集計機能  
