@@ -1,5 +1,6 @@
 # アプリケーション概要
 アクセス数とログインポイント数の管理を擬似的に管理できるようにしたアプリケーション  
+https://card-ak.herokuapp.com  
 ログイン用データ  
 user  :ササキ  
 e-mail:sasaki@gmail.com  
