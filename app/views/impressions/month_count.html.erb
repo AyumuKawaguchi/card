@@ -37,7 +37,7 @@
               </tr>
               <tr>
               <% @impressions.each do |impressions_key,impressions_value| %>
-                <td class="t-date"><%= @date %>/<%= impressions_key %></td>
+                <td class="t-date"><%= @date %>-<%= impressions_key %></td>
                 <td class = "t-date"><%= impressions_value %></td>
               </tr>
                  <% end %>
