@@ -73,3 +73,6 @@ gem 'jquery-rails'
 gem 'impressionist'
 gem "chartkick"
 gem 'faker'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'dotenv-rails'

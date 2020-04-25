@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_123435) do
+ActiveRecord::Schema.define(version: 2020_04_25_130537) do
 
   create_table "impressions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "impressionable_type"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 2020_04_19_123435) do
     t.boolean "admin", default: false
     t.integer "impressions_count", default: 0
     t.integer "points"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

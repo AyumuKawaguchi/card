@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   
-  devise :database_authenticatable, :registerable, :trackable,
-         :recoverable, :rememberable, :validatable
+  devise :database_authenticatable, :registerable, :trackable,:recoverable, :rememberable, :validatable,
+  :confirmable, :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter]
 
   has_many :user_points, dependent: :destroy
   has_many :point_histories, dependent: :destroy
