@@ -19,7 +19,4 @@ Rails.application.routes.draw do
     get  'month_count' 
     end
   end
-
-  
-
 end
