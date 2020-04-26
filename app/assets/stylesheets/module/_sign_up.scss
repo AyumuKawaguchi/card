@@ -1,0 +1,82 @@
+.sign_up-wrapper{
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.field{
+  padding-top: 8px;
+}
+
+.label{
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.signup-head{
+  width: 380px;
+  line-height: 30px;
+  text-align: center;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.signup-box{
+  width: 380px;
+  margin:0 auto;
+  text-align: center;
+}
+
+.actions{
+  padding-top:20px;
+}
+
+.field-area{
+  margin-top: -20px;
+}
+
+.btn-action{
+  width:173px;
+  height:38px;
+  color:#fff;
+  background-color: rgb(29, 161, 242);
+  border-radius: 5px;
+}
+
+.sns-box{
+  width: 400px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding-top:20px;
+}
+
+.log-box{
+  width: 190px;
+  background-color: rgb(29, 161, 242);
+  padding-bottom: 12px;
+  border-radius: 5px;
+}
+
+.btn-login{
+  width: 190px;
+  color: #fff;
+}
+
+
+.twitter-box{
+  width: 190px;
+  background-color: rgb(29, 161, 242);
+  padding-bottom: 12px;
+  border-radius: 5px;
+}
+
+.sns-icon{
+  color: #fff;
+  margin-left: 12px;
+}
+
+.btn-sns{
+  padding-bottom: 12px;
+  color:#fff;
+}

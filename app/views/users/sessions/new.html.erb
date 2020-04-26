@@ -1,32 +1,45 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true %>
+<div class="sign_up-wrapper">
+  <div class="signup-head">
+    <h2>ログイン画面</h2>
   </div>
+  <div class="signup-box">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+       <%= devise_error_messages! %>
+       <div class="field">
+        <%= f.label :name,"氏名", class:"label" %><br />
+        <%= f.text_field :username, placeholder: "氏名",class: "field-area", autofocus: true %>
+       </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <div class="field">
+        <%= f.label :email,"メールアドレス", class:"label" %><br />
+        <%= f.email_field :email, placeholder: "メールアドレス", class: "field-area", autofocus: true %>
+      </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+       <div class="field">
+         <%= f.label :password, "パスワード", class:"label" %><br />
+         <%= f.password_field :password, placeholder: "パスワード", class: "field-area", autocomplete: "on" %>
+       </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <div class="actions">
+        <%= f.submit "ログイン", class:"btn-action" %>
+      </div>
+    <% end %>
+        
+     <div class="sns-box">
+      <div class="log-box">
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+          <%= link_to "新規登録へ", new_registration_path(resource_name), class: 'btn btn-login' %><br />
+        <% end %>
+      </div>
+      <div class="twitter-box">
+        <%- if devise_mapping.omniauthable? %>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+           <i class="fab fa-twitter sns-icon"></i><%= link_to " #{OmniAuth::Utils.camelize(provider)}で登録", omniauth_authorize_path(resource_name, provider), class: 'btn btn-sns' %><br />
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+</div>
