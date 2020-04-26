@@ -26,7 +26,7 @@ class User < ApplicationRecord
 
   def self.search(search)
     if search
-      User.where(['username LIKE ?', "%#{search}%"])
+      User.where(['username LIKE ? OR points LIKE ?', "%#{search}%", "%#{search}%"])
     else
       User.all
     end
