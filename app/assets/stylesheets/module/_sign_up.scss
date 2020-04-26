@@ -41,7 +41,13 @@
   color:#fff;
   background-color: rgb(29, 161, 242);
   border-radius: 5px;
+  cursor: pointer;
 }
+.btn-action:hover{
+  color:black;
+  transition: 0.7s ;
+}
+
 
 .sns-box{
   width: 400px;
@@ -62,6 +68,9 @@
   width: 190px;
   color: #fff;
 }
+.btn-login:hover{
+  transition: 0.7s ;
+}
 
 
 .twitter-box{
@@ -69,8 +78,8 @@
   background-color: rgb(29, 161, 242);
   padding-bottom: 12px;
   border-radius: 5px;
+  line-height: 40px;
 }
-
 .sns-icon{
   color: #fff;
   margin-left: 12px;
@@ -79,4 +88,7 @@
 .btn-sns{
   padding-bottom: 12px;
   color:#fff;
+}
+.btn-sns:hover{
+  transition: 0.7s ;
 }

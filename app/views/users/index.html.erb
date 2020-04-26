@@ -38,7 +38,7 @@
                 <th scope="col" class="t-title">氏名</th>
                 <th scope="col" class="t-title">マイページ閲覧数</th>
                 <th scope="col" class="t-title">ポイント数</th>
-                <th scope="col" class="t-title">登録日時
+                <th scope="col" class="t-title">前回ログイン日時
               </tr>
               <tr>
               <% @users.each do |user|%>
@@ -48,7 +48,7 @@
                 </td>
                 <td class="t-date"><%= user.impressions_count %></td>
                 <td class="t-date"><%= user.points %></td>
-                <td class="t-date"><%= user.created_at.to_s(:datetime) %></td>
+                <td class="t-date"><%= user.last_sign_in_at.to_s(:datetime) %></td>
               </tr>
               <% end %>
             </tbody>
