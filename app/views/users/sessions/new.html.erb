@@ -35,7 +35,7 @@
       <div class="twitter-box">
         <%- if devise_mapping.omniauthable? %>
           <%- resource_class.omniauth_providers.each do |provider| %>
-           <i class="fab fa-twitter sns-icon"></i><%= link_to " #{OmniAuth::Utils.camelize(provider)}で登録", omniauth_authorize_path(resource_name, provider), class: 'btn btn-sns' %><br />
+           <i class="fab fa-twitter sns-icon"></i><%= link_to " #{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider), class: 'btn btn-sns' %><br />
           <% end %>
         <% end %>
       </div>
