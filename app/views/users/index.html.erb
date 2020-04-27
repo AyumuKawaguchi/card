@@ -48,7 +48,7 @@
                 </td>
                 <td class="t-date"><%= user.impressions_count %></td>
                 <td class="t-date"><%= user.points %></td>
-                <td class="t-date"><%= user.last_sign_in_at.to_s(:datetime) %></td>
+                <td class="t-date"><%= user.current_sign_in_at.to_s(:datetime) %></td>
               </tr>
               <% end %>
             </tbody>
