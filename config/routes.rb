@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'users#index'
 
   resources :users do
-   
-    get :search, on: :collection
+    collection do
+    match 'search' => 'users#search', via: [:get, :post]
+    end
   end
   resources :user_points do
     collection do

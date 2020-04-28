@@ -1,3 +1,4 @@
+ 
 <%# 全体 %>
 <div class="wrapper">
   
@@ -36,6 +37,11 @@
     </nav>
     <div class="main-content">
       <div class="row">
+        <div class="search-sort">
+          <%= search_form_for @q, url: search_users_path ,html: { method: :post } do |f|%>
+            <%= f.select( :sorts, { '並び替え': 'id asc', 'マイページ閲覧の多い順': 'impressions_count desc', 'マイページ閲覧の少ない順': 'impressions_count asc', 'ポイントの多い順': 'points desc', 'ポイントの低い順': 'points asc', '登録の新しい順': 'created_at desc', '登録の古い順': 'created_at asc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+          <% end %>
+        </div>
         <div class="col-md-12">
           <table class="table">
             <tbody class="thead-dark">

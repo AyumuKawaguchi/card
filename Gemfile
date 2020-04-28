@@ -77,3 +77,4 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 gem 'ransack'
+gem 'bullet', :group => :development
