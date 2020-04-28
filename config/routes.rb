@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   resources :users do
     collection do
-    # get :search, on: :collection
-    # post :search, on: :collection
     match 'search' => 'users#search', via: [:get, :post]
     end
   end
