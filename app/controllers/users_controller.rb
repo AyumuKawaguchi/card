@@ -5,11 +5,28 @@ class UsersController < ApplicationController
   def index
     start_date = Time.current.beginning_of_day
     end_date = Time.current.end_of_day
-    @users = User.all
-    @users = User.search(params[:search])
     @user = User.all.sum(:impressions_count)
     @impression= Impression.where(created_at: start_date..end_date).group('DAY(created_at)').count
     @impressions = Impression.group("MONTH(created_at)").count
+
+  end
+
+  def search
+
+    start_date = Time.current.beginning_of_day
+    end_date = Time.current.end_of_day
+    @user = User.all.sum(:impressions_count)
+    @impression= Impression.where(created_at: start_date..end_date).group('DAY(created_at)').count
+    @impressions = Impression.group("MONTH(created_at)").count
+    if params[:q].present?
+      @q = User.ransack(search_params)
+      @users = @q.result
+    else
+      params[:q] = {sorts: 'id_desc'}
+      @q = User.ransack()
+      @users = User.all
+    end
+
   end
 
   def show
@@ -22,5 +39,10 @@ class UsersController < ApplicationController
        @user.increment!(:points, 1)
     end
   end
-  
+ 
+  def search_params
+    params.require(:q).permit(:sorts)
+  end
+
+
 end
