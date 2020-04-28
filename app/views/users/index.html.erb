@@ -33,9 +33,6 @@
         <%= f.submit "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
 
-      <%= search_form_for @q, url: users_path ,html: { method: :get } do |f|%>
-        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'points asc', '価格の高い順': 'points desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } ,  { onchange: 'this.form.submit()'} ) %>
-      <% end %>
     </nav>
     <div class="main-content">
       <div class="row">

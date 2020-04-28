@@ -1,4 +1,72 @@
- <%= search_form_for @q, url: search_users_path ,html: { method: :post } do |f|%>
-        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'points asc', '価格の高い順': 'points desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
-      <%= f.submit '完了' %>
+ 
+<%# 全体 %>
+<div class="wrapper">
+  
+<%=render 'shared/sidebar'%>
+
+  <div class="main-box">
+    <nav class="navbar">
+      <div class="register">登録者一覧</div>
+      <div class = count>
+        <div>総閲覧数:<%= @impressions.values.inject(:+) %></div>
+        <div>合計マイページ閲覧数:<%= @user %></div>
+      </div>
+        <% if user_signed_in? %>
+          <div class="devise">
+            <div class="logout">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="devise2">
+            <%= link_to "新規登録", new_user_registration_path, class:"log" %>
+            <%= link_to "ログイン", new_user_session_path, class:"log" %>
+          </div>
+        <% end %>
+
+      <%# <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
+          <%# <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %> 
+          <%# <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %> 
+      <%# <% end %>
+
+      <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
+        <%= f.search_field :username_cont, class: "form-control mr-sm-2", placeholder: "氏名" %>
+        <%= f.submit "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
+
+    </nav>
+    <div class="main-content">
+      <div class="row">
+        <div class="search-sort">
+          <%= search_form_for @q, url: search_users_path ,html: { method: :post } do |f|%>
+            <%= f.select( :sorts, { '並び替え': 'id asc', 'マイページ閲覧の多い順': 'impressions_count desc', 'マイページ閲覧の少ない順': 'impressions_count asc', 'ポイントの多い順': 'points desc', 'ポイントの低い順': 'points asc', '登録の新しい順': 'created_at desc', '登録の古い順': 'created_at asc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'} ) %>
+          <% end %>
+        </div>
+        <div class="col-md-12">
+          <table class="table">
+            <tbody class="thead-dark">
+              <tr>
+                <th scope="col" class="t-title"><%= sort_link(@q, :id, "ID") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :username, "氏名") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :impressions_count, "マイページ") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :points, "ポイント数")%></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :current_sign_in_at, "前回ログイン日時")%></th>
+              </tr>
+              <tr>
+              <% @users.each do |user|%>
+                <td class="t-date"><%= user.id %></td>
+                <td class="t-date">
+                <%= user.username %>
+                </td>
+                <td class="t-date"><%= user.impressions_count %></td>
+                <td class="t-date"><%= user.points %></td>
+                <td class="t-date"><%= user.current_sign_in_at.to_s(:datetime) %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
