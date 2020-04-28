@@ -23,9 +23,18 @@
           </div>
         <% end %>
 
-      <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
-          <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %>
-          <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %>
+      <%# <%= form_tag(users_path, :method => 'get', class: "form-inline" ) do %>
+          <%# <%= text_field_tag :search, "", {class: "form-control mr-sm-2"} %> 
+          <%# <%= submit_tag 'Search', class: "btn btn-outline-success my-2 my-sm-0" %> 
+      <%# <% end %>
+
+      <%= search_form_for @q, html: { class: "form-inline" } do |f| %>
+        <%= f.search_field :username_cont, class: "form-control mr-sm-2", placeholder: "氏名" %>
+        <%= f.submit "検索", class: "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
+
+      <%= search_form_for @q, url: users_path ,html: { method: :get } do |f|%>
+        <%= f.select( :sorts, { '並び替え': 'id desc', '価格の安い順': 'points asc', '価格の高い順': 'points desc', '出品の古い順': 'updated_at asc', '出品の新しい順': 'updated_at desc' } ,  { onchange: 'this.form.submit()'} ) %>
       <% end %>
     </nav>
     <div class="main-content">
@@ -34,11 +43,11 @@
           <table class="table">
             <tbody class="thead-dark">
               <tr>
-                <th scope="col" class="t-title">ID</th>
-                <th scope="col" class="t-title">氏名</th>
-                <th scope="col" class="t-title">マイページ閲覧数</th>
-                <th scope="col" class="t-title">ポイント数</th>
-                <th scope="col" class="t-title">前回ログイン日時
+                <th scope="col" class="t-title"><%= sort_link(@q, :id, "ID") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :username, "氏名") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :impressions_count, "マイページ") %></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :points, "ポイント数")%></th>
+                <th scope="col" class="t-title"><%= sort_link(@q, :current_sign_in_at, "前回ログイン日時")%></th>
               </tr>
               <tr>
               <% @users.each do |user|%>
