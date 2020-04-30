@@ -50,7 +50,7 @@
               <% @users.each do |user|%>
                 <td class="t-date"><%= user.id %></td>
                 <td class="t-date">
-                <%= user.username %>
+                <%= link_to user.username,edit_user_path(user)%>
                 </td>
                 <td class="t-date"><%= user.impressions_count %></td>
                 <td class="t-date"><%= user.points %></td>
