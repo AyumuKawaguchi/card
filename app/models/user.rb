@@ -2,10 +2,10 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable, :trackable,:recoverable, :rememberable, :validatable,
          :timeoutable, :omniauthable, omniauth_providers: [:twitter]
-
   has_many :user_points, dependent: :destroy
   has_many :point_histories, dependent: :destroy
-
+  is_impressionable counter_cache: true
+  
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth["provider"], uid: auth["uid"]) do |user|
       user.provider = auth["provider"]
@@ -31,10 +31,4 @@ class User < ApplicationRecord
       User.all
     end
   end
-
-
-  
-  is_impressionable counter_cache: true
-  
-
 end
